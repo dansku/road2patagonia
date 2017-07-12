@@ -20,11 +20,23 @@
 	<script type="text/javascript" src="{{ ASSET_PATH }}/js/fancybox/jquery.fancybox.pack.js"></script>
 	<script type="text/javascript" src="{{ ASSET_PATH }}/js/fancybox/lib/jquery.mousewheel-3.0.6.pack.js"></script>
 	<link rel="stylesheet" href="{{ ASSET_PATH }}/js/fancybox/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+	<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.4/jquery.lazy.min.js"></script>
+	
 
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$(".fancybox").fancybox();
 		});
+		
+   $(function() {
+        $('.lazy').lazy({
+          effect: "fadeIn",
+          effectTime: 2000,
+          threshold: 0
+        });
+    });
+
+		
 	</script>
 
 </head>
