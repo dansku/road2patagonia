@@ -1,0 +1,30 @@
+---
+layout: default
+---
+{% include JB/setup %}
+{% include themes/shivna/post.html %}
+
+<ul class="nav_posts">
+{% for category in site.categories %}
+    {% assign catg_name = category.first %}
+    {% if catg_name == page.category %}
+        {% assign catg_posts = category.last %}
+    {% endif %}
+{% endfor %}
+{% for post in catg_posts %}
+    {% if post.url == page.url %}
+        {% unless forloop.last %}
+            {% assign next = catg_posts[forloop.index] %}
+            <li class="nav_prev">
+            <a href="{{ next.url }}">{{ page.previous.title }}<span class="fa {{ next.icon }}"></span>&rarr;</a>
+            </li>
+        {% endunless %}
+        {% unless forloop.first %}
+            <li class="nav_next">
+            <a href="{{ prev.url }}">&larr;<span class="fa {{ prev.icon }}" style="margin-right:4px;"></span>{{ page.next.title }}</a>
+            </li>
+        {% endunless %}
+    {% endif %}
+    {% assign prev = post %}
+{% endfor %}
+</ul>
